@@ -28,7 +28,24 @@ export const loadEquipment = (): Equipment[] => {
   const stored = localStorage.getItem(EQUIPMENT_KEY);
   if (stored) {
     try {
-      return JSON.parse(stored);
+      const parsed: Equipment[] = JSON.parse(stored);
+      // Migration: Update images if they are old local paths
+      let updated = false;
+      const migrated = parsed.map(eq => {
+        if (eq.image && eq.image.startsWith('/')) {
+          const defaultEq = defaultEquipment.find(d => d.id === eq.id);
+          if (defaultEq) {
+            updated = true;
+            return { ...eq, image: defaultEq.image };
+          }
+        }
+        return eq;
+      });
+      if (updated) {
+        saveEquipment(migrated);
+        return migrated;
+      }
+      return parsed;
     } catch (e) {
       console.error('Failed to parse equipment from localStorage', e);
       return defaultEquipment;
