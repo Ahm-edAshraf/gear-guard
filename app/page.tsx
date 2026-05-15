@@ -1,65 +1,136 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight, Box, CalendarClock, ShieldAlert, CheckCircle2 } from 'lucide-react';
 
 export default function Home() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <motion.div 
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col gap-24 py-12"
+    >
+      {/* Hero Section */}
+      <section className="relative">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -z-10" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-[120px] -z-10" />
+        
+        <motion.div variants={itemVariants} className="max-w-4xl">
+          <h1 className="text-6xl md:text-8xl font-black leading-[0.9] mb-8">
+            BOOK CAMPUS<br />
+            <span className="text-accent">EQUIPMENT</span><br />
+            WITHOUT CHAOS.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-gray-400 font-mono max-w-2xl mb-12 border-l-4 border-accent pl-6">
+            Reserve projectors, cameras, microphones, laptops, and event tools in seconds. Built for speed, utility, and accountability.
           </p>
+          
+          <div className="flex flex-wrap gap-6">
+            <Link href="/equipment" className="btn-brutal text-lg">
+              Browse Equipment <ArrowRight className="ml-2" />
+            </Link>
+            <Link href="/book" className="btn-brutal-outline text-lg">
+              Create Booking
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Problem & Solution */}
+      <section className="grid md:grid-cols-2 gap-12">
+        <motion.div variants={itemVariants} className="card-brutal">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-red-500/20 text-red-500">
+              <ShieldAlert size={32} />
+            </div>
+            <h2 className="text-2xl font-black">The Problem</h2>
+          </div>
+          <ul className="space-y-4 font-mono text-gray-300">
+            <li className="flex items-start gap-3">
+              <span className="text-red-500 font-bold mt-1">X</span>
+              Equipment booking is manual, fragmented, and confusing.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-red-500 font-bold mt-1">X</span>
+              Double bookings happen due to lack of real-time sync.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-red-500 font-bold mt-1">X</span>
+              Late returns and damaged items are impossible to track.
+            </li>
+          </ul>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="card-brutal !border-accent">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-accent/20 text-accent">
+              <CheckCircle2 size={32} />
+            </div>
+            <h2 className="text-2xl font-black text-accent">The Solution</h2>
+          </div>
+          <ul className="space-y-4 font-mono text-gray-300">
+            <li className="flex items-start gap-3">
+              <span className="text-accent font-bold mt-1">/</span>
+              Real-time availability and smart conflict prevention.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-accent font-bold mt-1">/</span>
+              Instantly book equipment with automated validation.
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-accent font-bold mt-1">/</span>
+              Track pickup, return, overdue, and damage statuses.
+            </li>
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* Features Grid */}
+      <section>
+        <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12">Key Features</motion.h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              icon: <CalendarClock size={24} />,
+              title: "Conflict Check",
+              desc: "Mathematical overlap detection prevents double booking of the same asset."
+            },
+            {
+              icon: <Box size={24} />,
+              title: "Lifecycle Tracking",
+              desc: "Monitor an asset's state from 'Booked' to 'Picked Up' to 'Returned'."
+            },
+            {
+              icon: <ShieldAlert size={24} />,
+              title: "Overdue Detection",
+              desc: "Automatically flag items that haven't been returned past their deadline."
+            }
+          ].map((feature, idx) => (
+            <motion.div key={idx} variants={itemVariants} className="p-6 border-t-4 border-border bg-[#141414] hover:bg-[#1a1a1a] transition-colors">
+              <div className="text-accent mb-6">{feature.icon}</div>
+              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <p className="font-mono text-sm text-gray-400">{feature.desc}</p>
+            </motion.div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </motion.div>
   );
 }

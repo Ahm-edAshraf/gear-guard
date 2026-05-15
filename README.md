@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GearGuard Campus
+
+**Campus Equipment Booking & Return Tracker**
+
+GearGuard Campus is a brutalist-themed web application that allows students to book shared campus equipment such as projectors, cameras, microphones, tripods, HDMI cables, and laptops. It prevents double bookings, tracks pickup and return status, and helps administrators oversee equipment lifecycles.
+
+## Key Features
+
+- **Equipment Catalogue**: Browse all available campus resources.
+- **Booking Form**: Reserve items with strict temporal and duration constraints.
+- **Conflict Prevention**: Mathematical overlap detection prevents double booking of any single asset.
+- **Lifecycle Tracking**: Monitor the state of assets: `Booked` -> `Picked Up` -> `Returned`.
+- **Overdue Detection**: Automatically identify and flag items not returned by their required end time.
+- **Admin Dashboard**: Provide administrators with overarching metrics and status management actions.
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- Tailwind CSS v4
+- Framer Motion
+- Lucide React
+- localStorage (State Persistence for Prototype)
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies using Bun:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+Then, run the development server:
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is built using a decoupled architecture suitable for a prototype that can easily scale. 
+- The `app/` directory handles views and routing.
+- The `components/` directory handles reusable UI fragments.
+- The `lib/` directory handles core business logic (`bookingLogic.ts`, `dashboard.ts`, `validation.ts`), ensuring UI components are not bloated with state-mutation functions.
 
-## Learn More
+## Submission Details
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Designed and built for the Shortcut Asia Open Call challenge.
