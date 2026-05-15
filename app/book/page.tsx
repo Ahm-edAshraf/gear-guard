@@ -76,9 +76,9 @@ function BookingForm() {
     <div className="py-8 grid lg:grid-cols-5 gap-12">
       <div className="lg:col-span-3">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-black mb-4">RESERVE ASSET</h1>
+          <h1 className="text-4xl md:text-5xl font-black mb-4">Create Booking</h1>
           <p className="font-mono text-gray-400 border-l-2 border-accent pl-4">
-            Fill in the parameters below to acquire equipment.
+            Fill in the details below to reserve campus equipment.
           </p>
         </div>
 
@@ -118,7 +118,7 @@ function BookingForm() {
               <Box className="text-accent" /> Asset Selection
             </h2>
             <div>
-              <label className="label-brutal">Target Asset</label>
+              <label className="label-brutal">Equipment</label>
               <select 
                 name="equipmentId"
                 value={formData.equipmentId}
@@ -135,11 +135,11 @@ function BookingForm() {
 
           <div className="space-y-6">
             <h2 className="text-xl font-bold flex items-center gap-2 border-b border-border pb-4">
-              <Calendar className="text-accent" /> Temporal Parameters
+              <Calendar className="text-accent" /> Booking Time
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <label className="label-brutal">Operation Date</label>
+                <label className="label-brutal">Booking Date</label>
                 <input 
                   type="date" 
                   name="date"
@@ -195,7 +195,7 @@ function BookingForm() {
 
       <div className="lg:col-span-2">
         <div className="sticky top-28 space-y-6">
-          <h2 className="text-2xl font-black mb-6">ASSET PREVIEW</h2>
+          <h2 className="text-2xl font-black mb-6">Equipment Preview</h2>
           {selectedEquipment ? (
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
@@ -227,7 +227,7 @@ function BookingForm() {
           ) : (
             <div className="card-brutal border-dashed flex flex-col items-center justify-center py-20 text-center text-gray-500">
               <Box size={48} strokeWidth={1} className="mb-4 opacity-50" />
-              <p className="font-mono uppercase tracking-widest text-sm">NO ASSET SELECTED</p>
+              <p className="font-mono uppercase tracking-widest text-sm">No equipment selected</p>
             </div>
           )}
         </div>

@@ -67,7 +67,7 @@ export default function MyBookingsPage() {
             />
           </div>
           <button type="submit" className="btn-brutal px-8 shrink-0">
-            QUERY
+            Search
           </button>
         </form>
       </div>
@@ -75,7 +75,7 @@ export default function MyBookingsPage() {
       {hasSearched && (
         <div>
           <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-            <span className="text-accent">RESULTS FOR:</span> 
+            <span className="text-accent">Bookings for:</span> 
             <span className="font-mono bg-[#141414] px-3 py-1 border border-border">{studentId.toUpperCase()}</span>
           </h2>
           
