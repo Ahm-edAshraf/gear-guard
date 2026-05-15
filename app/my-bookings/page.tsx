@@ -48,9 +48,9 @@ export default function MyBookingsPage() {
   return (
     <div className="py-8">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase">Operator Logs</h1>
+        <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase">My Bookings</h1>
         <p className="font-mono text-gray-400 border-l-2 border-accent pl-4">
-          Access your reservation history by entering your identification code.
+          Access your reservation history by entering your Student ID.
         </p>
       </div>
 
