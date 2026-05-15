@@ -1,5 +1,5 @@
 import { Booking, BookingStatus, Equipment } from '../types';
-import { loadBookings, saveBookings, loadEquipment } from './storage';
+import { loadBookings, saveBookings, loadEquipment, saveEquipment } from './storage';
 import { validateBookingForm } from './validation';
 
 export const isTimeOverlap = (newStart: string, newEnd: string, existingStart: string, existingEnd: string): boolean => {
@@ -41,7 +41,7 @@ export const createBooking = (
   endTime: string,
   purpose: string
 ): { success: boolean; message: string; booking?: Booking } => {
-  const error = validateBookingForm(studentName, studentId, date, startTime, endTime, equipmentId);
+  const error = validateBookingForm(studentName, studentId, date, startTime, endTime, equipmentId, purpose);
   if (error) return { success: false, message: error };
 
   const equipmentList = loadEquipment();
@@ -98,6 +98,19 @@ export const markAsReturned = (bookingId: string): void => {
 
 export const markAsDamaged = (bookingId: string): void => {
   updateBookingStatus(bookingId, 'Damaged');
+
+  const bookings = loadBookings();
+  const booking = bookings.find(b => b.id === bookingId);
+  
+  if (booking) {
+    const equipmentList = loadEquipment();
+    const equipment = equipmentList.find(e => e.id === booking.equipmentId);
+    if (equipment) {
+      equipment.status = 'Maintenance';
+      equipment.condition = 'Needs Repair';
+      saveEquipment(equipmentList);
+    }
+  }
 };
 
 export const getEquipmentAvailability = (equipmentId: string, date: string, startTime: string, endTime: string): boolean => {

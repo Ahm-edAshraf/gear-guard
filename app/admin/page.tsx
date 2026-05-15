@@ -39,7 +39,7 @@ export default function AdminDashboard() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
         <div>
           <h1 className="text-4xl md:text-5xl font-black mb-4 flex items-center gap-4">
-            <TerminalSquare size={40} className="text-accent" /> OVERSEER DASHBOARD
+            <TerminalSquare size={40} className="text-accent" /> ADMIN DASHBOARD
           </h1>
           <p className="font-mono text-gray-400 border-l-2 border-accent pl-4">
             Administrative control interface for asset lifecycle management.
@@ -77,7 +77,7 @@ export default function AdminDashboard() {
             <thead>
               <tr className="border-b-2 border-border text-gray-500 uppercase tracking-widest">
                 <th className="pb-4 pr-4">ID / Time</th>
-                <th className="pb-4 px-4">Operator</th>
+                <th className="pb-4 px-4">Student</th>
                 <th className="pb-4 px-4">Asset</th>
                 <th className="pb-4 px-4">Status</th>
                 <th className="pb-4 pl-4 text-right">Actions</th>
@@ -109,14 +109,14 @@ export default function AdminDashboard() {
                     <td className="py-4 pl-4 text-right space-x-2">
                       {booking.status === 'Booked' && (
                         <>
-                          <button onClick={() => { markAsPickedUp(booking.id); refreshData(); }} className="px-3 py-1 bg-blue-500/10 text-blue-500 border border-blue-500/30 hover:bg-blue-500/20 text-xs font-bold transition-colors">DISPATCH</button>
-                          <button onClick={() => { cancelBooking(booking.id); refreshData(); }} className="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 text-xs font-bold transition-colors">ABORT</button>
+                          <button onClick={() => { markAsPickedUp(booking.id); refreshData(); }} className="px-3 py-1 bg-blue-500/10 text-blue-500 border border-blue-500/30 hover:bg-blue-500/20 text-xs font-bold transition-colors">MARK PICKED UP</button>
+                          <button onClick={() => { cancelBooking(booking.id); refreshData(); }} className="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 text-xs font-bold transition-colors">CANCEL</button>
                         </>
                       )}
                       {(booking.status === 'Picked Up' || booking.status === 'Overdue') && (
                         <>
                           <button onClick={() => { markAsReturned(booking.id); refreshData(); }} className="px-3 py-1 bg-green-500/10 text-green-500 border border-green-500/30 hover:bg-green-500/20 text-xs font-bold transition-colors">RETURN</button>
-                          <button onClick={() => { markAsDamaged(booking.id); refreshData(); }} className="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 text-xs font-bold transition-colors">FLAG DMG</button>
+                          <button onClick={() => { markAsDamaged(booking.id); refreshData(); }} className="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 text-xs font-bold transition-colors">MARK DAMAGED</button>
                         </>
                       )}
                       {(booking.status === 'Returned' || booking.status === 'Damaged' || booking.status === 'Cancelled') && (

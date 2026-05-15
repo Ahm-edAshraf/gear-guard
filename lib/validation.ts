@@ -48,9 +48,11 @@ export const validateBookingForm = (
   date: string, 
   startTime: string, 
   endTime: string,
-  equipmentId: string
+  equipmentId: string,
+  purpose: string
 ): string | null => {
   if (!equipmentId) return "Please select equipment.";
+  if (!purpose.trim()) return "Purpose is required.";
   
   let error = validateStudentInfo(studentName, studentId);
   if (error) return error;

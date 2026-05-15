@@ -38,7 +38,7 @@ export default function BookingCard({ booking, onCancel }: BookingCardProps) {
           onClick={() => onCancel(booking.id)}
           className="w-full btn-brutal-outline border-red-500 text-red-500 hover:bg-red-500/10 hover:border-red-400 hover:text-red-400"
         >
-          ABORT RESERVATION
+          CANCEL RESERVATION
         </button>
       )}
     </div>

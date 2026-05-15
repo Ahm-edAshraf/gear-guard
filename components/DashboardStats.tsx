@@ -7,7 +7,7 @@ export default function DashboardStatsCards({ stats }: { stats: DashboardStats }
     { label: 'Total Assets', value: stats.totalEquipment, icon: <Box size={20} />, color: 'text-gray-400' },
     { label: 'Total Logs', value: stats.totalBookings, icon: <Layers size={20} />, color: 'text-gray-400' },
     { label: 'Active', value: stats.activeBookings, icon: <Activity size={20} />, color: 'text-accent' },
-    { label: 'Dispatched', value: stats.pickedUpItems, icon: <CheckSquare size={20} />, color: 'text-blue-500' },
+    { label: 'Picked Up', value: stats.pickedUpItems, icon: <CheckSquare size={20} />, color: 'text-blue-500' },
     { label: 'Returned', value: stats.returnedItems, icon: <CornerDownLeft size={20} />, color: 'text-green-500' },
     { label: 'Overdue', value: stats.overdueItems, icon: <AlertCircle size={20} />, color: 'text-red-500' },
     { label: 'Damaged', value: stats.damagedItems, icon: <AlertOctagon size={20} />, color: 'text-red-500' },

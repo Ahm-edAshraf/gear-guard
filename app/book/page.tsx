@@ -17,11 +17,18 @@ function BookingForm() {
   const [equipmentList, setEquipmentList] = useState<Equipment[]>([]);
   const [toast, setToast] = useState<{ message: string, type: ToastType } | null>(null);
 
+  const getTodayLocal = () => {
+    const now = new Date();
+    const offset = now.getTimezoneOffset();
+    const localDate = new Date(now.getTime() - offset * 60 * 1000);
+    return localDate.toISOString().split("T")[0];
+  };
+
   const [formData, setFormData] = useState({
     studentName: '',
     studentId: '',
     equipmentId: initialEquipmentId,
-    date: new Date().toISOString().split('T')[0],
+    date: getTodayLocal(),
     startTime: '09:00',
     endTime: '11:00',
     purpose: ''
@@ -73,11 +80,11 @@ function BookingForm() {
         <form onSubmit={handleSubmit} className="space-y-8 bg-[#141414] p-8 border-2 border-border">
           <div className="space-y-6">
             <h2 className="text-xl font-bold flex items-center gap-2 border-b border-border pb-4">
-              <User className="text-accent" /> Operator Identity
+              <User className="text-accent" /> Student Details
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label className="label-brutal">Operator Name</label>
+                <label className="label-brutal">Student Name</label>
                 <input 
                   type="text" 
                   name="studentName"
@@ -88,7 +95,7 @@ function BookingForm() {
                 />
               </div>
               <div>
-                <label className="label-brutal">Identification Code</label>
+                <label className="label-brutal">Student ID</label>
                 <input 
                   type="text" 
                   name="studentId"
@@ -161,10 +168,10 @@ function BookingForm() {
 
           <div className="space-y-6">
             <h2 className="text-xl font-bold flex items-center gap-2 border-b border-border pb-4">
-              <FileText className="text-accent" /> Operation Directive
+              <FileText className="text-accent" /> Booking Purpose
             </h2>
             <div>
-              <label className="label-brutal">Purpose of Acquisition</label>
+              <label className="label-brutal">Purpose</label>
               <textarea 
                 name="purpose"
                 value={formData.purpose}
@@ -176,7 +183,7 @@ function BookingForm() {
           </div>
 
           <button type="submit" className="w-full btn-brutal text-xl">
-            Execute Reservation
+            Create Booking
           </button>
         </form>
       </div>
@@ -190,8 +197,13 @@ function BookingForm() {
               animate={{ opacity: 1, x: 0 }}
               className="card-brutal"
             >
-              <div className="h-40 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-accent">
-                <Box size={48} strokeWidth={1} />
+              <div className="h-40 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-accent relative overflow-hidden">
+                {selectedEquipment.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={selectedEquipment.image} alt={selectedEquipment.name} className="w-full h-full object-cover" />
+                ) : (
+                  <Box size={48} strokeWidth={1} />
+                )}
               </div>
               <h3 className="text-xl font-bold mb-4 uppercase">{selectedEquipment.name}</h3>
               <div className="space-y-2 font-mono text-sm text-gray-400">

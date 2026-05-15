@@ -10,9 +10,14 @@ interface EquipmentCardProps {
 export default function EquipmentCard({ equipment }: EquipmentCardProps) {
   return (
     <div className="card-brutal flex flex-col h-full group">
-      {/* "Image" Placeholder */}
-      <div className="h-48 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-border group-hover:text-accent transition-colors">
-        <Box size={48} strokeWidth={1} />
+      {/* Image Preview */}
+      <div className="h-48 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-border group-hover:text-accent transition-colors relative overflow-hidden">
+        {equipment.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={equipment.image} alt={equipment.name} className="w-full h-full object-cover" />
+        ) : (
+          <Box size={48} strokeWidth={1} />
+        )}
       </div>
       
       <div className="flex-grow flex flex-col">
