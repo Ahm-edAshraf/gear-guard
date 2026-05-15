@@ -2,6 +2,8 @@
 
 **Campus Equipment Booking & Return Tracker**
 
+Live demo: [https://gearguard-campus.vercel.app](https://gearguard-campus.vercel.app)
+
 GearGuard Campus is a brutalist-themed web application that allows students to book shared campus equipment such as projectors, cameras, microphones, tripods, HDMI cables, and laptops. It prevents double bookings, tracks pickup and return status, and helps administrators oversee equipment lifecycles.
 
 ## Key Features
