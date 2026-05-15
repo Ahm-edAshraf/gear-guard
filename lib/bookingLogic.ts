@@ -48,6 +48,13 @@ export const createBooking = (
   const equipment = equipmentList.find(e => e.id === equipmentId);
   if (!equipment) return { success: false, message: "Equipment not found." };
 
+  if (equipment.status !== "Available") {
+    return {
+      success: false,
+      message: "This equipment is currently unavailable."
+    };
+  }
+
   const bookings = loadBookings();
   const conflict = findBookingConflict(equipmentId, date, startTime, endTime, bookings);
   
@@ -114,6 +121,10 @@ export const markAsDamaged = (bookingId: string): void => {
 };
 
 export const getEquipmentAvailability = (equipmentId: string, date: string, startTime: string, endTime: string): boolean => {
+  const equipmentList = loadEquipment();
+  const equipment = equipmentList.find(e => e.id === equipmentId);
+  if (!equipment || equipment.status !== 'Available') return false;
+
   const bookings = loadBookings();
   const conflict = findBookingConflict(equipmentId, date, startTime, endTime, bookings);
   return conflict === null;

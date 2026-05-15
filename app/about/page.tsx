@@ -10,7 +10,7 @@ export default function AboutPage() {
     {
       icon: <Zap className="text-accent" size={32} />,
       title: "2. The Solution",
-      content: "GearGuard Campus provides a unified, brutalist, high-utility interface for operators (students) to view real-time availability and secure reservations, while administrators oversee lifecycle states (Booked -> Dispatched -> Returned)."
+      content: "GearGuard Campus provides a unified, brutalist, high-utility interface for students to view real-time availability and secure reservations, while administrators oversee lifecycle states (Booked -> Picked Up -> Returned)."
     },
     {
       icon: <Cpu className="text-accent" size={32} />,
@@ -20,7 +20,7 @@ export default function AboutPage() {
     {
       icon: <Scale className="text-accent" size={32} />,
       title: "4. Conflict Prevention Math",
-      content: "The core reservation logic mathematically guarantees no overlaps for a given asset. Evaluated via: (newStart < existingEnd AND newEnd > existingStart). If true, the system explicitly rejects the request."
+      content: "The core reservation logic mathematically guarantees no overlaps for a given item. Evaluated via: (newStart < existingEnd AND newEnd > existingStart). If true, the system explicitly rejects the request."
     },
     {
       icon: <Database className="text-accent" size={32} />,
