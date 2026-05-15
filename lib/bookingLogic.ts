@@ -120,6 +120,21 @@ export const markAsDamaged = (bookingId: string): void => {
   }
 };
 
+export const markEquipmentRepairedFromBooking = (bookingId: string): void => {
+  const bookings = loadBookings();
+  const booking = bookings.find(b => b.id === bookingId);
+  
+  if (booking) {
+    const equipmentList = loadEquipment();
+    const equipment = equipmentList.find(e => e.id === booking.equipmentId);
+    if (equipment) {
+      equipment.status = 'Available';
+      equipment.condition = 'Good';
+      saveEquipment(equipmentList);
+    }
+  }
+};
+
 export const getEquipmentAvailability = (equipmentId: string, date: string, startTime: string, endTime: string): boolean => {
   const equipmentList = loadEquipment();
   const equipment = equipmentList.find(e => e.id === equipmentId);

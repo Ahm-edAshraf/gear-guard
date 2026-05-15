@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { loadBookings } from '@/lib/storage';
+import { loadBookings, loadEquipment } from '@/lib/storage';
 import { getDashboardStats, DashboardStats, updateOverdueBookings } from '@/lib/dashboard';
-import { markAsPickedUp, markAsReturned, markAsDamaged, cancelBooking } from '@/lib/bookingLogic';
-import { Booking } from '@/types';
+import { markAsPickedUp, markAsReturned, markAsDamaged, cancelBooking, markEquipmentRepairedFromBooking } from '@/lib/bookingLogic';
+import { Booking, Equipment } from '@/types';
 import DashboardStatsCards from '@/components/DashboardStats';
 import StatusBadge from '@/components/StatusBadge';
 import { TerminalSquare } from 'lucide-react';
@@ -12,6 +12,7 @@ import { TerminalSquare } from 'lucide-react';
 export default function AdminDashboard() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [bookings, setBookings] = useState<Booking[]>([]);
+  const [equipmentList, setEquipmentList] = useState<Equipment[]>([]);
   const [filter, setFilter] = useState('All');
 
   const refreshData = useCallback(() => {
@@ -19,6 +20,7 @@ export default function AdminDashboard() {
     setStats(getDashboardStats());
     const allBookings = loadBookings().sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     setBookings(allBookings);
+    setEquipmentList(loadEquipment());
   }, []);
 
   useEffect(() => {
@@ -119,8 +121,18 @@ export default function AdminDashboard() {
                           <button onClick={() => { markAsDamaged(booking.id); refreshData(); }} className="px-3 py-1 bg-red-500/10 text-red-500 border border-red-500/30 hover:bg-red-500/20 text-xs font-bold transition-colors">MARK DAMAGED</button>
                         </>
                       )}
-                      {(booking.status === 'Returned' || booking.status === 'Damaged' || booking.status === 'Cancelled') && (
-                        <span className="text-gray-600 text-xs">NO ACTIONS</span>
+                      {booking.status === 'Damaged' && (
+                        (() => {
+                          const equipment = equipmentList.find(e => e.id === booking.equipmentId);
+                          return equipment?.status === 'Maintenance' ? (
+                            <button onClick={() => { markEquipmentRepairedFromBooking(booking.id); refreshData(); }} className="px-3 py-1 bg-accent/10 text-accent border border-accent/30 hover:bg-accent/20 text-xs font-bold transition-colors">MARK REPAIRED</button>
+                          ) : (
+                            <span className="text-accent text-xs font-bold uppercase tracking-tight">REPAIRED / AVAILABLE</span>
+                          );
+                        })()
+                      )}
+                      {(booking.status === 'Returned' || booking.status === 'Cancelled') && (
+                        <span className="text-gray-600 text-xs uppercase">NO ACTIONS</span>
                       )}
                     </td>
                   </tr>
