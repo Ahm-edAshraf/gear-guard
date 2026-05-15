@@ -2,19 +2,27 @@ import { Equipment } from '@/types';
 import StatusBadge from './StatusBadge';
 import Link from 'next/link';
 import { Box, MapPin, Activity } from 'lucide-react';
+import Image from 'next/image';
 
 interface EquipmentCardProps {
   equipment: Equipment;
+  eager?: boolean;
 }
 
-export default function EquipmentCard({ equipment }: EquipmentCardProps) {
+export default function EquipmentCard({ equipment, eager = false }: EquipmentCardProps) {
   return (
     <div className="card-brutal flex flex-col h-full group">
       {/* Image Preview */}
       <div className="h-48 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-border group-hover:text-accent transition-colors relative overflow-hidden">
         {equipment.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={equipment.image} alt={equipment.name} className="w-full h-full object-cover" />
+          <Image
+            src={equipment.image}
+            alt={equipment.name}
+            fill
+            loading={eager ? 'eager' : 'lazy'}
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover"
+          />
         ) : (
           <Box size={48} strokeWidth={1} />
         )}

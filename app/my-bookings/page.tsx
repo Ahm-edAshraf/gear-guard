@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { loadBookings, saveBookings } from '@/lib/storage';
+import { loadBookings } from '@/lib/storage';
 import { cancelBooking } from '@/lib/bookingLogic';
 import { Booking } from '@/types';
 import BookingCard from '@/components/BookingCard';
@@ -15,7 +15,11 @@ export default function MyBookingsPage() {
   const [allBookings, setAllBookings] = useState<Booking[]>([]);
 
   useEffect(() => {
-    setAllBookings(loadBookings());
+    const timer = window.setTimeout(() => {
+      setAllBookings(loadBookings());
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {

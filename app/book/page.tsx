@@ -7,7 +7,8 @@ import { createBooking } from '@/lib/bookingLogic';
 import { Equipment } from '@/types';
 import Toast, { ToastType } from '@/components/Toast';
 import { motion } from 'framer-motion';
-import { Box, Calendar, Clock, User, FileText } from 'lucide-react';
+import { Box, Calendar, User, FileText } from 'lucide-react';
+import Image from 'next/image';
 
 function BookingForm() {
   const router = useRouter();
@@ -35,7 +36,11 @@ function BookingForm() {
   });
 
   useEffect(() => {
-    setEquipmentList(loadEquipment().filter(e => e.status === 'Available'));
+    const timer = window.setTimeout(() => {
+      setEquipmentList(loadEquipment().filter(e => e.status === 'Available'));
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -199,8 +204,14 @@ function BookingForm() {
             >
               <div className="h-40 w-full bg-[#1a1a1a] border-2 border-border mb-6 flex items-center justify-center text-accent relative overflow-hidden">
                 {selectedEquipment.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={selectedEquipment.image} alt={selectedEquipment.name} className="w-full h-full object-cover" />
+                  <Image
+                    src={selectedEquipment.image}
+                    alt={selectedEquipment.name}
+                    fill
+                    loading="eager"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover"
+                  />
                 ) : (
                   <Box size={48} strokeWidth={1} />
                 )}

@@ -1,30 +1,30 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { loadBookings } from '@/lib/storage';
 import { getDashboardStats, DashboardStats, updateOverdueBookings } from '@/lib/dashboard';
 import { markAsPickedUp, markAsReturned, markAsDamaged, cancelBooking } from '@/lib/bookingLogic';
 import { Booking } from '@/types';
 import DashboardStatsCards from '@/components/DashboardStats';
 import StatusBadge from '@/components/StatusBadge';
-import { ShieldAlert, TerminalSquare } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { TerminalSquare } from 'lucide-react';
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [filter, setFilter] = useState('All');
 
-  const refreshData = () => {
+  const refreshData = useCallback(() => {
     updateOverdueBookings();
     setStats(getDashboardStats());
     const allBookings = loadBookings().sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
     setBookings(allBookings);
-  };
+  }, []);
 
   useEffect(() => {
-    refreshData();
-  }, []);
+    const timer = window.setTimeout(refreshData, 0);
+    return () => window.clearTimeout(timer);
+  }, [refreshData]);
 
   if (!stats) return <div className="text-center py-20 font-mono text-accent">INITIALIZING COMMAND CENTER...</div>;
 

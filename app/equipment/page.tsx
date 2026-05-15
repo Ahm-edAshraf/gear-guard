@@ -13,7 +13,11 @@ export default function EquipmentPage() {
   const [categoryFilter, setCategoryFilter] = useState('All');
 
   useEffect(() => {
-    setEquipment(loadEquipment());
+    const timer = window.setTimeout(() => {
+      setEquipment(loadEquipment());
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   const categories = ['All', 'Presentation', 'Media', 'Audio', 'Computing', 'Accessories'];
@@ -77,7 +81,7 @@ export default function EquipmentPage() {
             }
           }}
         >
-          {filteredEquipment.map((item) => (
+          {filteredEquipment.map((item, index) => (
             <motion.div
               key={item.id}
               variants={{
@@ -85,7 +89,7 @@ export default function EquipmentPage() {
                 visible: { opacity: 1, y: 0 }
               }}
             >
-              <EquipmentCard equipment={item} />
+              <EquipmentCard equipment={item} eager={index < 4} />
             </motion.div>
           ))}
         </motion.div>

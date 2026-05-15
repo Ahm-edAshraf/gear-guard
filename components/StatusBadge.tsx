@@ -1,4 +1,3 @@
-import { EquipmentStatus } from '@/types';
 import clsx from 'clsx';
 
 interface StatusBadgeProps {

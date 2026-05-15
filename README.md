@@ -51,4 +51,17 @@ Designed and built for the Shortcut Asia Open Call challenge.
 
 ## Image Credits
 
-Equipment images are sourced from Wikimedia Commons. They are used under their respective Creative Commons or CC0 licenses. Full image source pages are listed in the project documentation.
+Equipment images are sourced from Wikimedia Commons and `upload.wikimedia.org`. They are used under their respective Creative Commons or CC0 licenses.
+
+- `camera.jpg`: Canon EOS R6 14.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `projector.jpg`: Epson EB-U04-5358.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `camera2.jpg`: Sony A 7 iii full frame mirrorless camera.jpg, Wikimedia Commons, CC BY 4.0
+- `tripod.jpg`: (Photography equipment Tripod Photo Camera Tripod photograph in a studio).jpg, Wikimedia Commons, CC BY-SA 4.0
+- `mic.jpg`: Rode Wireless Go II microphones.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `hdmi.jpg`: HDMI CableEnd 02.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `cord.jpg`: Extension cord.JPG, Wikimedia Commons, CC BY-SA 3.0
+- `clicker.jpg`: Logitech Presenter.png, Wikimedia Commons, CC BY-SA 2.0
+- `speaker.jpg`: JBL PartyBox On-The-Go.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `laptop.jpg`: DELL XPS 13 and 15 (37041682184).jpg, Wikimedia Commons, CC0
+- `hub.jpg`: Anker PowerExpand 8-in-1-2186.jpg, Wikimedia Commons, CC BY-SA 4.0
+- `ringlight.jpg`: Ring Light 25280737679.jpg, Wikimedia Commons, CC0

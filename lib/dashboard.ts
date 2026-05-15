@@ -1,4 +1,4 @@
-import { Booking, Equipment } from '../types';
+import { Booking } from '../types';
 import { loadBookings, loadEquipment, saveBookings } from './storage';
 
 export const isBookingOverdue = (booking: Booking): boolean => {

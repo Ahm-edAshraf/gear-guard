@@ -15,7 +15,7 @@ export default function AboutPage() {
     {
       icon: <Cpu className="text-accent" size={32} />,
       title: "3. Tech Stack & Architecture",
-      content: "Built on Next.js 15 (App Router), React 19, and Tailwind CSS. The state layer utilizes browser localStorage to fulfill prototype constraints while simulating a server-less backend. Logic is strictly decoupled into `/lib` files (`bookingLogic.ts`, `validation.ts`) separate from UI components."
+      content: "Built on Next.js 16 (App Router), React 19, and Tailwind CSS. The state layer utilizes browser localStorage to fulfill prototype constraints while simulating a server-less backend. Logic is strictly decoupled into `/lib` files (`bookingLogic.ts`, `validation.ts`) separate from UI components."
     },
     {
       icon: <Scale className="text-accent" size={32} />,
