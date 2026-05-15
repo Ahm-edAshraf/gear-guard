@@ -8,7 +8,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Media Room, Level 4',
     condition: 'Excellent',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800',
+    image: '/camera.jpg',
   },
   {
     id: 'eq-002',
@@ -17,7 +17,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'IT Helpdesk, Level 2',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800',
+    image: '/projector.jpg',
   },
   {
     id: 'eq-003',
@@ -26,7 +26,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Media Room, Level 4',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&q=80&w=800',
+    image: '/camera2.jpg',
   },
   {
     id: 'eq-004',
@@ -35,7 +35,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Media Room, Level 4',
     condition: 'Fair',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1587825425624-9b2f63f53cb4?auto=format&fit=crop&q=80&w=800',
+    image: '/tripod.jpg',
   },
   {
     id: 'eq-005',
@@ -44,7 +44,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Media Room, Level 4',
     condition: 'Excellent',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=800',
+    image: '/mic.jpg',
   },
   {
     id: 'eq-006',
@@ -53,7 +53,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'IT Helpdesk, Level 2',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1550005935-77987258352b?auto=format&fit=crop&q=80&w=800',
+    image: '/hdmi.jpg',
   },
   {
     id: 'eq-007',
@@ -62,7 +62,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Events Storage, Level 1',
     condition: 'Fair',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1623861214040-5e36502da2bb?auto=format&fit=crop&q=80&w=800',
+    image: '/cord.jpg',
   },
   {
     id: 'eq-008',
@@ -71,7 +71,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'IT Helpdesk, Level 2',
     condition: 'Excellent',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1585255476311-6677469a47b1?auto=format&fit=crop&q=80&w=800',
+    image: '/clicker.jpg',
   },
   {
     id: 'eq-009',
@@ -80,7 +80,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'Events Storage, Level 1',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=800',
+    image: '/speaker.jpg',
   },
   {
     id: 'eq-010',
@@ -89,7 +89,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'IT Helpdesk, Level 2',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&q=80&w=800',
+    image: '/laptop.jpg',
   },
   {
     id: 'eq-011',
@@ -98,7 +98,7 @@ export const defaultEquipment: Equipment[] = [
     location: 'IT Helpdesk, Level 2',
     condition: 'Excellent',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&q=80&w=800',
+    image: '/hub.jpg',
   },
   {
     id: 'eq-012',
@@ -107,6 +107,6 @@ export const defaultEquipment: Equipment[] = [
     location: 'Media Room, Level 4',
     condition: 'Good',
     status: 'Available',
-    image: 'https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&q=80&w=800',
+    image: '/ringlight.jpg',
   }
 ];

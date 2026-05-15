@@ -48,3 +48,7 @@ This project is built using a decoupled architecture suitable for a prototype th
 ## Submission Details
 
 Designed and built for the Shortcut Asia Open Call challenge.
+
+## Image Credits
+
+Equipment images are sourced from Wikimedia Commons. They are used under their respective Creative Commons or CC0 licenses. Full image source pages are listed in the project documentation.
