@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function DashboardStatsCards({ stats }: { stats: DashboardStats }) {
   const statItems = [
-    { label: 'Total Assets', value: stats.totalEquipment, icon: <Box size={20} />, color: 'text-gray-400' },
+    { label: 'Total Equipment', value: stats.totalEquipment, icon: <Box size={20} />, color: 'text-gray-400' },
     { label: 'Total Logs', value: stats.totalBookings, icon: <Layers size={20} />, color: 'text-gray-400' },
     { label: 'Active', value: stats.activeBookings, icon: <Activity size={20} />, color: 'text-accent' },
     { label: 'Picked Up', value: stats.pickedUpItems, icon: <CheckSquare size={20} />, color: 'text-blue-500' },

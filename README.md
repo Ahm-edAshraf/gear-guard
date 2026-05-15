@@ -11,7 +11,7 @@ GearGuard Campus is a brutalist-themed web application that allows students to b
 - **Equipment Catalogue**: Browse all available campus resources.
 - **Booking Form**: Reserve items with strict time and duration constraints.
 - **Conflict Prevention**: Mathematical overlap detection prevents double booking of any single item.
-- **Lifecycle Tracking**: Monitor the state of assets: `Booked` -> `Picked Up` -> `Returned`.
+- **Lifecycle Tracking**: Monitor the state of items: `Booked` -> `Picked Up` -> `Returned`.
 - **Overdue Detection**: Automatically identify and flag items not returned by their required end time.
 - **Admin Dashboard**: Provide administrators with overarching metrics and status management actions.
 

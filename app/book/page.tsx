@@ -115,7 +115,7 @@ function BookingForm() {
 
           <div className="space-y-6">
             <h2 className="text-xl font-bold flex items-center gap-2 border-b border-border pb-4">
-              <Box className="text-accent" /> Asset Selection
+              <Box className="text-accent" /> Equipment Selection
             </h2>
             <div>
               <label className="label-brutal">Equipment</label>
@@ -125,7 +125,7 @@ function BookingForm() {
                 onChange={handleChange}
                 className="input-brutal appearance-none bg-[#0f0f0f]"
               >
-                <option value="">-- SELECT ASSET --</option>
+                <option value="">-- SELECT EQUIPMENT --</option>
                 {equipmentList.map(eq => (
                   <option key={eq.id} value={eq.id}>{eq.name} ({eq.category})</option>
                 ))}

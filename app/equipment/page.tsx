@@ -43,7 +43,7 @@ export default function EquipmentPage() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
             <input 
               type="text" 
-              placeholder="SEARCH ASSETS..." 
+              placeholder="SEARCH EQUIPMENT..." 
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="input-brutal pl-10 w-full sm:w-64"

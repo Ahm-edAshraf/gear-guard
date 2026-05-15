@@ -35,7 +35,7 @@ export default function MyBookingsPage() {
   };
 
   const handleCancel = (id: string) => {
-    if (confirm('Are you sure you want to abort this reservation?')) {
+    if (confirm('Are you sure you want to cancel this reservation?')) {
       cancelBooking(id);
       // Refresh list
       const updatedAll = loadBookings();

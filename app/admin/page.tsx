@@ -44,7 +44,7 @@ export default function AdminDashboard() {
             <TerminalSquare size={40} className="text-accent" /> ADMIN DASHBOARD
           </h1>
           <p className="font-mono text-gray-400 border-l-2 border-accent pl-4">
-            Administrative control interface for asset lifecycle management.
+            Administrative control interface for equipment lifecycle management.
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ export default function AdminDashboard() {
 
       <div className="bg-[#141414] border-2 border-border p-6 mb-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-          <h2 className="text-2xl font-black">RESERVATION LEDGER</h2>
+          <h2 className="text-2xl font-black">RESERVATION HISTORY</h2>
           
           <div className="flex flex-wrap gap-2">
             {statuses.map(s => (
@@ -80,7 +80,7 @@ export default function AdminDashboard() {
               <tr className="border-b-2 border-border text-gray-500 uppercase tracking-widest">
                 <th className="pb-4 pr-4">ID / Time</th>
                 <th className="pb-4 px-4">Student</th>
-                <th className="pb-4 px-4">Asset</th>
+                <th className="pb-4 px-4">Equipment</th>
                 <th className="pb-4 px-4">Status</th>
                 <th className="pb-4 pl-4 text-right">Actions</th>
               </tr>

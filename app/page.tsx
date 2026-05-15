@@ -110,12 +110,12 @@ export default function Home() {
             {
               icon: <CalendarClock size={24} />,
               title: "Conflict Check",
-              desc: "Mathematical overlap detection prevents double booking of the same asset."
+              desc: "Mathematical overlap detection prevents double booking of the same item."
             },
             {
               icon: <Box size={24} />,
               title: "Lifecycle Tracking",
-              desc: "Monitor an asset's state from 'Booked' to 'Picked Up' to 'Returned'."
+              desc: "Monitor an item's state from 'Booked' to 'Picked Up' to 'Returned'."
             },
             {
               icon: <ShieldAlert size={24} />,

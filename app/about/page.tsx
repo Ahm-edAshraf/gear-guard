@@ -5,7 +5,7 @@ export default function AboutPage() {
     {
       icon: <Target className="text-accent" size={32} />,
       title: "1. The Problem",
-      content: "Campus equipment tracking is frequently disorganized. Managing assets like projectors, cameras, and microphones through fragmented channels (spreadsheets or chat apps) leads to double bookings, untracked damage, and unreturned items."
+      content: "Campus equipment tracking is frequently disorganized. Managing equipment like projectors, cameras, and microphones through fragmented channels (spreadsheets or chat apps) leads to double bookings, untracked damage, and unreturned items."
     },
     {
       icon: <Zap className="text-accent" size={32} />,
