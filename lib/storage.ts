@@ -29,12 +29,12 @@ export const loadEquipment = (): Equipment[] => {
   if (stored) {
     try {
       const parsed: Equipment[] = JSON.parse(stored);
-      // Migration: Update images if they are old local paths
+      // Migration: normalize stored image references to the current bundled public assets.
       let updated = false;
       const migrated = parsed.map(eq => {
-        if (eq.image && eq.image.startsWith('/')) {
-          const defaultEq = defaultEquipment.find(d => d.id === eq.id);
-          if (defaultEq) {
+        const defaultEq = defaultEquipment.find(d => d.id === eq.id);
+        if (defaultEq) {
+          if (eq.image !== defaultEq.image) {
             updated = true;
             return { ...eq, image: defaultEq.image };
           }
