@@ -2,10 +2,11 @@
   "name": "gearguard-campus",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "bun@1.3.13",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "bun run --bun next dev",
+    "build": "bun run --bun next build",
+    "start": "bun run --bun next start",
     "lint": "eslint"
   },
   "dependencies": {
